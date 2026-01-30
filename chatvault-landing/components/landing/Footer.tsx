@@ -50,9 +50,9 @@ export function Footer() {
                 </div>
 
                 <div className="flex items-center gap-8">
-                    <Link href="#" className="text-zinc-500 hover:text-white transition-colors"><Github size={20} /></Link>
-                    <Link href="#" className="text-zinc-500 hover:text-white transition-colors"><Twitter size={20} /></Link>
-                    <Link href="#" className="text-zinc-500 hover:text-white transition-colors"><Mail size={20} /></Link>
+                    <Link href="https://github.com/GxAditya/ChatVault" target="_blank" className="text-zinc-500 hover:text-white transition-colors"><Github size={20} /></Link>
+                    <Link href="https://x.com/kaditya264" target="_blank" className="text-zinc-500 hover:text-white transition-colors"><Twitter size={20} /></Link>
+                    <Link href="mailto:kradi2098@gmail.com" className="text-zinc-500 hover:text-white transition-colors"><Mail size={20} /></Link>
                 </div>
 
                 <div className="text-xs font-mono text-zinc-700">
