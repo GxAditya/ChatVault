@@ -24,6 +24,25 @@ export const metadata: Metadata = {
     ],
     apple: '/icon128.png',
   },
+  openGraph: {
+    title: "ChatVault - Export AI Chats to PDF",
+    description: "Securely export your ChatGPT, Claude, and Gemini conversations to clean, formatted PDFs with ChatVault.",
+    images: [
+      {
+        url: "/og.webp",
+        width: 1200,
+        height: 630,
+        alt: "ChatVault Preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ChatVault - Export AI Chats to PDF",
+    description: "Securely export your ChatGPT, Claude, and Gemini conversations to clean, formatted PDFs with ChatVault.",
+    images: ["/og.webp"],
+  },
 };
 
 export default function RootLayout({
