@@ -92,6 +92,28 @@ ChatVault-Firefox/
 │   ├── icon48.png
 │   └── icon128.png
 ```
+
+### Building for Firefox (XPI)
+
+To create an XPI file for Firefox Add-on Store submission:
+
+```bash
+cd ChatVault-Firefox
+zip -r ../chatvault-firefox.xpi *
+```
+
+### Building for Chrome (ZIP)
+
+To create a ZIP file for Chrome Web Store submission:
+
+```bash
+cd ChatVault-Chrome
+zip -r ../chatvault-chrome.zip *
+```
+
+This creates a `chatvault-chrome.zip` file in the parent directory that can be uploaded to the Chrome Web Store.
+
+
 ## Troubleshooting
 
 ### "No messages found"

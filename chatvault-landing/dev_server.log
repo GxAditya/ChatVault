@@ -1,0 +1,98 @@
+
+> chatvault-landing@0.1.0 dev
+> next dev
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /home/aditya/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /home/aditya/Dev/VibeCode/ChatVault/chatvault-landing/package-lock.json
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.36.75:3000
+
+✓ Starting...
+✓ Ready in 673ms
+○ Compiling / ...
+ GET / 200 in 5.2s (compile: 4.6s, render: 643ms)
+ GET / 200 in 5.2s (compile: 4.8s, render: 316ms)
+ GET / 200 in 175ms (compile: 11ms, render: 163ms)
+✓ Compiled in 52ms
+✓ Compiled in 266ms
+✓ Compiled in 71ms
+✓ Compiled in 55ms
+ GET / 200 in 118ms (compile: 40ms, render: 78ms)
+ GET / 200 in 40ms (compile: 10ms, render: 30ms)
+✓ Compiled in 70ms
+✓ Compiled in 94ms
+✓ Compiled in 117ms
+ GET / 200 in 198ms (compile: 54ms, render: 144ms)
+ GET / 200 in 198ms (compile: 123ms, render: 74ms)
+ GET / 200 in 58ms (compile: 5ms, render: 54ms)
+ GET / 200 in 23ms (compile: 5ms, render: 18ms)
+ GET / 200 in 27ms (compile: 7ms, render: 21ms)
+ GET / 200 in 27ms (compile: 7ms, render: 20ms)
+✓ Compiled in 42ms
+✓ Compiled in 29ms
+✓ Compiled in 154ms
+✓ Compiled in 154ms
+✓ Compiled in 231ms
+⨯ ./Dev/VibeCode/ChatVault/chatvault-landing/components/landing/DemoSection.tsx:15:13
+Parsing ecmascript source code failed
+[0m [90m 13 |[39m                 [33m<[39m[33mdiv[39m className[33m=[39m[32m"flex justify-between items-end mb-12"[39m[33m>[39m
+ [90m 14 |[39m                     [33m<[39m[33mh2[39m className[33m=[39m[32m"text-3xl font-display font-bold text-white uppercase tracking-tight"[39m[33m>[39m
+[31m[1m>[22m[39m[90m 15 |[39m             [33m>[39m [33mVisual_Log[39m [90m// Demo[39m
+ [90m    |[39m             [31m[1m^[22m[39m
+ [90m 16 |[39m                     [33m<[39m[33m/[39m[33mh2[39m[33m>[39m
+ [90m 17 |[39m                     [33m<[39m[33mdiv[39m className[33m=[39m[32m"flex gap-2 text-[10px] font-mono text-zinc-500"[39m[33m>[39m
+ [90m 18 |[39m                         [33m<[39m[33mspan[39m[33m>[39m[33mREC[39m[33m<[39m[33m/[39m[33mspan[39m[33m>[39m[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import trace:
+  Server Component:
+    ./Dev/VibeCode/ChatVault/chatvault-landing/components/landing/DemoSection.tsx
+    ./Dev/VibeCode/ChatVault/chatvault-landing/app/page.tsx
+
+
+ GET / 500 in 1175ms (compile: 1042ms, render: 133ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 616ms (compile: 245ms, render: 370ms)
+ GET / 200 in 191ms (compile: 44ms, render: 147ms)
+ GET / 200 in 95ms (compile: 5ms, render: 89ms)
+ GET / 200 in 246ms (compile: 11ms, render: 235ms)
+✓ Compiled in 45ms
+✓ Compiled in 42ms
+ GET / 200 in 328ms (compile: 85ms, render: 242ms)
+✓ Compiled in 158ms
+✓ Compiled in 41ms
+✓ Compiled in 860ms
+ GET / 200 in 108ms (compile: 87ms, render: 21ms)
+ GET / 200 in 1394ms (compile: 878ms, render: 516ms)
+ GET / 200 in 1444ms (compile: 1008ms, render: 435ms)
+ GET / 200 in 90ms (compile: 7ms, render: 83ms)
+ GET / 200 in 160ms (compile: 29ms, render: 132ms)
+ GET / 200 in 500ms (compile: 7ms, render: 493ms)
+ GET / 200 in 287ms (compile: 13ms, render: 273ms)
+ GET / 200 in 147ms (compile: 32ms, render: 115ms)
+✓ Compiled in 74ms
+ GET / 200 in 137ms (compile: 35ms, render: 102ms)
+ GET / 200 in 73ms (compile: 4ms, render: 69ms)
+ GET / 200 in 48ms (compile: 5ms, render: 43ms)
+ GET / 200 in 22ms (compile: 6ms, render: 15ms)
+ GET / 200 in 15ms (compile: 3ms, render: 12ms)
+ GET / 200 in 23ms (compile: 6ms, render: 18ms)
+ GET / 200 in 22ms (compile: 5ms, render: 17ms)
+✓ Compiled in 212ms
+✓ Compiled in 147ms
+ GET / 200 in 200ms (compile: 50ms, render: 151ms)
+ GET / 200 in 85ms (compile: 4ms, render: 80ms)
+ GET / 200 in 49ms (compile: 5ms, render: 44ms)
+✓ Compiled in 0ms
+ GET / 200 in 304ms (compile: 193ms, render: 112ms)
+ GET / 200 in 304ms (compile: 150ms, render: 154ms)
+ GET / 200 in 93ms (compile: 6ms, render: 87ms)
+✓ Compiled in 27ms
+✓ Compiled in 29ms
