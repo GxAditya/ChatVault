@@ -701,11 +701,7 @@ function extractChatContent(platformKey, options) {
 
       assistantContainers.forEach((el, i) => {
         let content = '';
-        let thinkingContent = '';
-        let responseContent = '';
-
-        // Find thinking section (in Z.ai it's inside .thinking-chain-container)
-        const thinkingContainer = el.querySelector('.thinking-chain-container, [class*="thinking"], [class*="Thought"]');
+        let finalResponseContent = '';
 
         // Find the main response content area
         const responseArea = el.querySelector('.chat-assistant .markdown-prose') ||
@@ -717,30 +713,46 @@ function extractChatContent(platformKey, options) {
         // Clone the response area to manipulate without affecting the original DOM
         const responseClone = responseArea.cloneNode(true);
 
-        // Remove thinking section from clone if it exists inside (and we want to exclude it)
-        const thinkingInClone = responseClone.querySelector('.thinking-chain-container, [class*="thinking-block"], [class*="thinking"]');
-        if (thinkingInClone) {
-          thinkingInClone.remove();
-        }
+        // ALWAYS remove thinking section from the response clone
+        // Thinking sections are nested within the response area in Z.ai
+        const thinkingSelectors = [
+          '.thinking-chain-container',
+          '[class*="thinking-block"]',
+          '[class*="thinking"]',
+          '[class*="Thought"]'
+        ];
+        
+        thinkingSelectors.forEach(selector => {
+          const thinkingElements = responseClone.querySelectorAll(selector);
+          thinkingElements.forEach(thinkingEl => {
+            thinkingEl.remove();
+          });
+        });
 
-        // Get the main response HTML content (preserves markdown formatting)
-        responseContent = responseClone.innerHTML?.trim() || '';
+        // Get the main response HTML content (with thinking removed)
+        finalResponseContent = responseClone.innerHTML?.trim() || '';
 
-        // If user wants thinking included and we found a thinking section
-        if (options.includeThinking && thinkingContainer) {
-          // Get thinking content from the blockquote inside the thinking container
-          const thinkingBlockquote = thinkingContainer.querySelector('blockquote');
-          if (thinkingBlockquote) {
-            thinkingContent = thinkingBlockquote.innerText?.trim() || '';
-          }
+        // If user wants thinking included, prepend it to the response
+        if (options.includeThinking) {
+          // Find thinking section from the original element (not the clone)
+          const thinkingContainer = el.querySelector('.thinking-chain-container, [class*="thinking"], [class*="Thought"]');
+          
+          if (thinkingContainer) {
+            // Get thinking content from the blockquote inside the thinking container
+            const thinkingBlockquote = thinkingContainer.querySelector('blockquote');
+            const thinkingContent = thinkingBlockquote?.innerText?.trim() || '';
 
-          if (thinkingContent) {
-            content = `[Thinking Process]\n${thinkingContent}\n\n[Response]\n${responseContent}`;
+            if (thinkingContent) {
+              content = `[Thinking Process]\n${thinkingContent}\n\n[Response]\n${finalResponseContent}`;
+            } else {
+              content = finalResponseContent;
+            }
           } else {
-            content = responseContent;
+            content = finalResponseContent;
           }
         } else {
-          content = responseContent;
+          // Thinking is disabled, use only the response content (thinking already removed from clone)
+          content = finalResponseContent;
         }
 
         // Use text content for deduplication (more reliable)
@@ -762,8 +774,29 @@ function extractChatContent(platformKey, options) {
       if (seenAssistantContent.size === 0) {
         const chatAssistantElements = document.querySelectorAll('.chat-assistant');
         chatAssistantElements.forEach((el, i) => {
-          const htmlContent = el.innerHTML?.trim();
-          const textContent = el.innerText?.trim();
+          // Clone to avoid modifying original DOM
+          const clone = el.cloneNode(true);
+          
+          // Remove thinking sections if not included
+          if (!options.includeThinking) {
+            const thinkingSelectors = [
+              '.thinking-chain-container',
+              '[class*="thinking-block"]',
+              '[class*="thinking"]',
+              '[class*="Thought"]'
+            ];
+            
+            thinkingSelectors.forEach(selector => {
+              const thinkingElements = clone.querySelectorAll(selector);
+              thinkingElements.forEach(thinkingEl => {
+                thinkingEl.remove();
+              });
+            });
+          }
+          
+          const htmlContent = clone.innerHTML?.trim();
+          const textContent = clone.innerText?.trim();
+          
           if (htmlContent && textContent && !seenAssistantContent.has(textContent)) {
             seenAssistantContent.add(textContent);
             messages.push({
@@ -1000,37 +1033,81 @@ function extractChatContent(platformKey, options) {
   let title = 'Chat Export';
 
   if (platformKey === 'zai') {
-    // For Z.ai: The selected chat in the sidebar has specific background classes
-    // We need to find the button that has a non-hover bg class (indicating it's selected)
-    const sidebarButtons = document.querySelectorAll('#sidebar button');
-    let selectedChat = null;
-
-    for (const btn of sidebarButtons) {
-      // Check if the button has a selected background (not just hover state)
-      // Selected items have bg-[#F2F4F6] (light) or bg-[#37383B] (dark) directly applied
-      const classList = btn.className;
-      if ((classList.includes('bg-[#F2F4F6]') || classList.includes('bg-[#37383B]')) &&
-        !classList.includes('group-hover')) {
-        selectedChat = btn;
-        break;
+    // For Z.ai: Look for selected chat in sidebar
+    // The selected chat has bg-[#F2F4F6] (light) or bg-[#37383B] (dark)
+    const sidebar = document.querySelector('#sidebar');
+    if (sidebar) {
+      // Find buttons with the active/selected background color
+      const activeButtons = sidebar.querySelectorAll('button[class*="bg-[#F2F4F6]"], button[class*="bg-[#37383B]"]');
+      
+      for (const btn of activeButtons) {
+        // Skip if this is the new chat button
+        if (btn.id === 'sidebar-new-chat-button' || 
+            btn.classList.contains('siderNewChatButton') ||
+            btn.querySelector('svg')) {
+          continue;
+        }
+        
+        // The title is in div[dir="auto"] inside the button
+        const titleDiv = btn.querySelector('div[dir="auto"]');
+        if (titleDiv && titleDiv.innerText?.trim()) {
+          const text = titleDiv.innerText.trim();
+          if (text.length > 0 && text.length < 200) {
+            title = text;
+            break;
+          }
+        }
+        
+        // Fallback: try to get any text from the button (excluding menu icons)
+        const textNodes = Array.from(btn.querySelectorAll('div, span'))
+          .filter(el => !el.querySelector('svg') && el.innerText?.trim());
+        
+        for (const node of textNodes) {
+          const text = node.innerText.trim();
+          if (text && text.length > 0 && text.length < 200 && 
+              text !== 'Chat Menu' && !text.includes('•••')) {
+            title = text;
+            break;
+          }
+        }
+        
+        if (title !== 'Chat Export') break;
       }
     }
 
-    if (selectedChat) {
-      // Find the title div inside - it has dir="auto" and contains the text
-      const titleDiv = selectedChat.querySelector('div[dir="auto"]');
-      if (titleDiv && titleDiv.innerText) {
-        title = titleDiv.innerText.trim();
+    // Strategy 2: Look for draggable chat items that contain the active button
+    if (title === 'Chat Export') {
+      const draggableItems = document.querySelectorAll('[draggable="true"]');
+      for (const item of draggableItems) {
+        const activeBtn = item.querySelector('button[class*="bg-[#F2F4F6]"], button[class*="bg-[#37383B]"]');
+        if (activeBtn) {
+          const titleDiv = activeBtn.querySelector('div[dir="auto"]');
+          if (titleDiv && titleDiv.innerText?.trim()) {
+            const text = titleDiv.innerText.trim();
+            if (text.length > 0 && text.length < 200) {
+              title = text;
+              break;
+            }
+          }
+        }
       }
     }
 
-    // Fallback: try to get from the first user message if sidebar title not found
+    // Strategy 3: Try to extract from URL path (chat ID might be present)
+    if (title === 'Chat Export') {
+      const urlMatch = window.location.pathname.match(/\/c\/([^\/]+)/) || 
+                       window.location.pathname.match(/\/chat\/([^\/]+)/);
+      if (urlMatch && urlMatch[1]) {
+        title = `Chat ${urlMatch[1].substring(0, 8)}`;
+      }
+    }
+
+    // Strategy 4: Fallback to first user message if no title found
     if (title === 'Chat Export') {
       const firstUserMsg = document.querySelector('.user-message .chat-user, .user-message');
       if (firstUserMsg) {
         const msgText = firstUserMsg.innerText?.trim();
         if (msgText) {
-          // Use first 50 chars of first message as title
           title = msgText.length > 50 ? msgText.substring(0, 50) + '...' : msgText;
         }
       }
