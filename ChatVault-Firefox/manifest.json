@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ChatVault - AI Chat Exporter",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Export your AI chat conversations from ChatGPT, Claude, Gemini, Z.AI, DeepSeek, Kimi, and Qwen to PDF format",
   "browser_specific_settings": {
     "gecko": {
