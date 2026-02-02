@@ -9,7 +9,7 @@ export function CTA() {
         <section className="py-32 px-4 text-center border-b border-zinc-900 bg-zinc-950">
             <div className="container mx-auto max-w-4xl">
                 <h2 className="text-6xl md:text-9xl font-display font-black text-white mb-12 uppercase tracking-tighter">
-                    Secure It.
+                    Take Control Now.
                 </h2>
 
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6">

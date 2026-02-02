@@ -11,9 +11,14 @@ export default function DemoSection() {
         <section id="demo" className="py-24 px-4 bg-zinc-950 border-y border-zinc-900">
             <div className="container mx-auto max-w-5xl">
                 <div className="flex justify-between items-end mb-12">
-                    <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tight">
-                        &gt; Visual_Log // Demo
-                    </h2>
+                    <div>
+                        <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tight">
+                            See ChatVault in Action
+                        </h2>
+                        <p className="text-zinc-500 font-mono text-xs mt-2">
+                            &gt; 60 SECONDS TO EFFICIENT ARCHIVING.
+                        </p>
+                    </div>
                     <div className="flex gap-2 text-[10px] font-mono text-zinc-500">
                         <span>REC</span>
                         <span className="animate-pulse text-red-500">●</span>

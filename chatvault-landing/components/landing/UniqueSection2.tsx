@@ -10,10 +10,10 @@ export default function UniqueSection2() {
 
                 <div className="text-center max-w-3xl mb-16">
                     <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 uppercase">
-                        Universal Format
+                        Flawless Formatting
                     </h2>
                     <p className="text-lg text-zinc-500 max-w-md mx-auto">
-                        Standardized PDF export preserving markdown, code syntax, and image assets.
+                        Don't settle for messy copy-pastes. ChatVault preserves syntax highlighting, markdown tables, and images exactly as you see them.
                     </p>
                 </div>
 

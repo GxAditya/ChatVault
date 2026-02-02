@@ -14,18 +14,18 @@ export default function UniqueSection1() {
              // ARCHITECTURE_TYPE: ZERO_SERVER
                     </div>
                     <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 uppercase leading-none">
-                        Your Data.<br />
-                        Your Device.
+                        Your Data stays<br />
+                        On Your Device.
                     </h2>
                     <p className="text-lg text-zinc-500 leading-relaxed mb-12 max-w-md">
-                        Processing occurs locally within the browser instance. No external API calls. No telemetry.
+                        We don't want your data. ChatVault runs entirely in your browser. No external servers. No analytics. Just you and your chats.
                     </p>
 
                     <div className="space-y-px bg-zinc-900 border border-zinc-900">
                         {[
-                            { icon: ServerOff, title: "OFFLINE_MODE", desc: "No internet required." },
-                            { icon: Lock, title: "ENCRYPTION", desc: "Local storage only." },
-                            { icon: ShieldCheck, title: "COMPLIANCE", desc: "GDPR / CCPA Ready." }
+                            { icon: ServerOff, title: "OFFLINE FRIENDLY", desc: "No internet connection needed to export." },
+                            { icon: Lock, title: "LOCALLY PROCESSED", desc: "Your conversations never leave your machine." },
+                            { icon: ShieldCheck, title: "PRIVACY FIRST", desc: "No telemetry. No tracking. Period." }
                         ].map((item, i) => (
                             <div key={i} className="flex items-center gap-6 p-6 bg-black hover:bg-zinc-950 transition-colors">
                                 <item.icon size={24} className="text-white" strokeWidth={1.5} />

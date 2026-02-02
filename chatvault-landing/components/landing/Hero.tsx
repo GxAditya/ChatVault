@@ -10,11 +10,11 @@ export default function Hero() {
             <div className="container mx-auto px-4 text-center z-10 relative">
 
                 {/* Decorative Grid Lines */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[1px] bg-zinc-900 -z-10" />
-                <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-[1px] bg-zinc-900 -z-10" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-px bg-zinc-900 -z-10" />
+                <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-px bg-zinc-900 -z-10" />
 
                 <div className="bg-white text-black text-xs font-bold uppercase tracking-widest py-1 px-3 inline-block mb-8">
-                    v1.1.0 Released
+                    New Release: v1.1.0
                 </div>
 
                 <motion.h1
@@ -23,7 +23,8 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    ChatVault
+                    Own Your AI<br />
+                    <span className="text-zinc-500">Conversations.</span>
                 </motion.h1>
 
                 <motion.p
@@ -32,8 +33,7 @@ export default function Hero() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    Zero cloud. Zero tracking. <br />
-                    <span className="text-white font-medium">100% Local AI Chat Export.</span>
+                    The only local-first exporter for <span className="text-white font-medium">ChatGPT, Claude, and Gemini</span>. Preserve your intellectual property in clean, searchable PDFs.
                 </motion.p>
 
                 <motion.div

@@ -11,12 +11,12 @@ import {
 } from "lucide-react";
 
 const features = [
-    { icon: Moon, title: "DARK_MODE_PDF", desc: "Exports respect your theme. Perfect for reading at night." },
-    { icon: GitBranch, title: "MERMAID_RENDER", desc: "Diagrams and charts are preserved in vector format." },
-    { icon: BrainCircuit, title: "THOUGHT_TRACE", desc: "Capture AI reasoning chains and hidden thought processes." },
-    { icon: ListOrdered, title: "ORDER_PRESERVED", desc: "Maintains exact conversation chronology and context." },
-    { icon: ScanSearch, title: "AUTO_DETECT", desc: "Automatically identifies platform (ChatGPT, Claude, etc)." },
-    { icon: Code2, title: "OPEN_SOURCE", desc: "Transparency first. Audit the code on GitHub." },
+    { icon: Moon, title: "Read Comfortably", desc: "Optimized for long-form reading. High contrast, clean typography, and perfect dark mode support." },
+    { icon: GitBranch, title: "Legal Grade Records", desc: "Diagrams, charts, and reasoning preserved pixel-perfectly. Useful for IP documentation." },
+    { icon: BrainCircuit, title: "Capture The Logic", desc: "Don't just save the answer. Save the 'Thinking Trace' that got you there." },
+    { icon: ListOrdered, title: "Chronological Integrity", desc: "Maintains exact timestamp-free conversation flow. Rewind your thought process." },
+    { icon: ScanSearch, title: "Zero Configuration", desc: "Install and export. ChatVault auto-detects between ChatGPT, Claude, and Gemini." },
+    { icon: Code2, title: "Auditable Privacy", desc: "100% Open Source. The code runs on your device, not our servers. Verify it yourself." },
 ];
 
 export default function Features() {
@@ -25,7 +25,7 @@ export default function Features() {
             <div className="container mx-auto max-w-6xl">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <h2 className="text-4xl md:text-6xl font-display font-black text-white uppercase leading-none">
-                        System<br />Capabilities
+                        Professional<br />Grade Archiving
                     </h2>
                     <p className="text-zinc-500 max-w-sm text-right font-mono text-xs">
                         MODULES_ACTIVE: 6/6<br />

@@ -4,23 +4,23 @@ import { motion } from "framer-motion";
 
 const cases = [
     {
-        title: "STUDENTS",
-        desc: "Archive study sessions. Annotate PDFs.",
+        title: "ENGINEERS",
+        desc: "Snapshot debugging sessions. Archive code snippets with full context and stack traces.",
         id: "01"
     },
     {
-        title: "DEVELOPERS",
-        desc: "Save debugging logs. Searchable code history.",
+        title: "RESEARCHERS",
+        desc: "Create permanent records of literature reviews and methodology discussions.",
         id: "02"
     },
     {
-        title: "RESEARCH",
-        desc: "Preserve deep-dive conversations permanent.",
+        title: "CREATORS",
+        desc: "Build a specialized library of prompts, outlines, and brainstorming sessions.",
         id: "03"
     },
     {
-        title: "CREATORS",
-        desc: "Keep brainstorming sessions offline.",
+        title: "STUDENTS",
+        desc: "Transform chaotic study chats into structured, readable revision notes.",
         id: "04"
     }
 ];
@@ -31,7 +31,7 @@ export default function UseCases() {
             <div className="container mx-auto max-w-6xl">
                 <div className="mb-12 border-b border-zinc-900 pb-4 flex justify-between items-end">
                     <h2 className="text-3xl font-display font-bold text-white uppercase tracking-tight">
-                        Target Vectors
+                        Built For Power Users
                     </h2>
                     <span className="font-mono text-xs text-zinc-600">SECTORS_IDENTIFIED: 4</span>
                 </div>

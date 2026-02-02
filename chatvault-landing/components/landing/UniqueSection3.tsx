@@ -11,10 +11,11 @@ export default function UniqueSection3() {
                 {/* Left: Content */}
                 <div>
                     <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 uppercase leading-none">
-                        Digital<br />Archive.
+                        Your Second Brain,<br />
+                        Archived Forever.
                     </h2>
                     <p className="text-lg text-zinc-500 mb-12">
-                        Structure your knowledge base. Tag, categorize, and retrieve information instantly.
+                        Stop searching through history. Build a local, offline-accessible library of your most valuable AI interactions.
                     </p>
 
                     <div className="border border-zinc-900">
