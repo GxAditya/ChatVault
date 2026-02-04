@@ -14,7 +14,7 @@ export default function Hero() {
                 <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-px bg-zinc-900 -z-10" />
 
                 <div className="bg-white text-black text-xs font-bold uppercase tracking-widest py-1 px-3 inline-block mb-8">
-                    New Release: v1.1.0
+                    New Release: v1.2.0
                 </div>
 
                 <motion.h1
@@ -52,12 +52,13 @@ export default function Hero() {
                     </a>
 
                     <a
-                        href="/downloads/chatvault-firefox.xpi"
-                        download
+                        href="https://addons.mozilla.org/en-US/firefox/addon/chatvault-ai-chat-exporter/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="px-6 py-4 bg-transparent border border-zinc-700 text-white font-bold text-sm hover:bg-zinc-900 transition-colors flex items-center gap-3 min-w-[200px] justify-center"
                     >
                         <Globe size={20} />
-                        <span>DOWNLOAD FIREFOX (XPI)</span>
+                        <span>ADD TO FIREFOX</span>
                     </a>
                 </motion.div>
 
@@ -67,7 +68,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.5 }}
                     className="mt-4 text-xs text-zinc-500 font-mono"
                 >
-                    * Developer Mode installation required for now
+                    * Chrome version requires Developer Mode installation for now
                 </motion.div>
 
                 {/* Extension Mockup */}
@@ -120,7 +121,7 @@ export default function Hero() {
 
                         {/* Status Bar */}
                         <div className="mt-4 pt-3 border-t border-zinc-900 flex justify-between items-center text-[10px] font-mono text-zinc-600">
-                            <span>v1.1.0</span>
+                            <span>v1.2.0</span>
                             <span className="flex items-center gap-1"><span className="w-1 h-1 bg-zinc-600 rounded-full" /> READY</span>
                         </div>
 

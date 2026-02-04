@@ -27,7 +27,7 @@ export default function SupportedPlatforms() {
                         <div
                             key={index}
                             className="text-4xl md:text-6xl font-display font-black text-transparent text-stroke-white text-stroke-1 shrink-0 uppercase"
-                            style={{ WebkitTextStroke: "1px #333" }}
+                            style={{ WebkitTextStroke: "1px #555" }}
                         >
                             {platform}
                         </div>

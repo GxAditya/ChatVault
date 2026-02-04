@@ -24,17 +24,18 @@ export function CTA() {
                     </a>
 
                     <a
-                        href="/downloads/chatvault-firefox.xpi"
-                        download
+                        href="https://addons.mozilla.org/en-US/firefox/addon/chatvault-ai-chat-exporter/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="group relative inline-flex items-center justify-center gap-4 px-8 py-5 bg-transparent border border-zinc-700 hover:bg-zinc-900 hover:border-zinc-600 transition-colors text-white font-black text-lg uppercase tracking-wider min-w-[240px]"
                     >
                         <Globe size={24} />
-                        <span>Firefox (XPI)</span>
+                        <span>Add to Firefox</span>
                     </a>
                 </div>
 
                 <p className="mt-8 text-xs font-mono text-zinc-500">
-                    VERSION 1.1.0 • OPEN SOURCE • NO DATA COLLECTION
+                    VERSION 1.2.0 • OPEN SOURCE • NO DATA COLLECTION
                 </p>
             </div>
         </section>
@@ -55,7 +56,7 @@ export function Footer() {
                     <Link href="mailto:kradi2098@gmail.com" className="text-zinc-500 hover:text-white transition-colors"><Mail size={20} /></Link>
                 </div>
 
-                <div className="text-xs font-mono text-zinc-700">
+                <div className="text-xs font-mono text-zinc-500">
                     © {new Date().getFullYear()} CHATVAULT SYSTEM.
                 </div>
             </div>

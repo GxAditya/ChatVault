@@ -46,7 +46,7 @@ export default function DemoSection() {
                     ) : (
                         <div className="w-full h-full bg-black">
                             <video
-                                src="/chatvault-demo.webm"
+                                src="/chat-vault-demo.mp4"
                                 autoPlay
                                 loop
                                 muted
